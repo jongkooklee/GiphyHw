@@ -59,7 +59,7 @@ function startGame () {
 
         //Add new Button
          var button = $("<button>");
-         button.append(nbaPlayers[i]); 
+         button.append(addPlayerInput); 
          button.attr("class","btn");
          button.attr("id", addPlayerInput)
          $("#playerButtons").append(button)
@@ -89,17 +89,27 @@ $(document).on("click", "button", function() { //if the button is clicked. will 
 
             newDiv.attr("id", "image" + [i+1]); //so I can access later for when it is clicked
 
-            newImg.on("click",function() {
-              stillOrActive == !stillOrActive;
-            });
 
-// need to reverse boolean and change img src depending on true or false.
-            if (stillOrActive == true) {
-              newImg.attr("src",response.data[i].images.fixed_height.url);
-              }
-            else if (stillOrActive == false) {
-              newImg.attr("src",response.datap[i].images.fixed_height_still.url);
-              };
+              newImg.attr("src",response.data[i].images.fixed_height_still.url);
+              newImg.attr("data-still",response.data[i].images.fixed_height_still.url);
+              newImg.attr("data-animate",response.data[i].images.fixed_height.url);
+              newImg.attr("data-state", "still");
+
+              newImg.on("click", function() {
+                console.log("HI");
+                // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+                var state = $(this).attr("data-state");
+                // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+                // Then, set the image's data-state to animate
+                // Else set src to the data-still value
+                if (state === "still") {
+                  $(this).attr("src", $(this).attr("data-animate"));
+                  $(this).attr("data-state", "animate");
+                } else {
+                  $(this).attr("src", $(this).attr("data-still"));
+                  $(this).attr("data-state", "still");
+                }
+              });
 
             newImg.attr("class", "img-rounded");
             newDiv.append(ratingSentence);
