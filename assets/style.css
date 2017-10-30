@@ -1,0 +1,51 @@
+.btn {
+	margin: 20px;
+	margin-bottom: 20px;
+}
+
+#playerButtons {
+	background-color: black;
+	padding-bottom: 20px;
+}
+
+#innerContainer {
+	margin: 20px 0px 20px 0px;
+	background-color: lightgray;
+	height: 100%;
+
+}
+
+p {
+	font-family: "Open Sans";
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.img-rounded {
+	margin: 0px 10px 10px 0px;
+}
+
+#searchBar {
+	height: 30px;
+	margin-top: 20px;
+}
+
+#nbalogo {
+	height: 70px;
+}
+
+.inline {
+	display: inline-block;
+}
+
+#ratingcss {
+	font-family: "Open Sans";
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+#standardText {
+	font-family: "Open Sans";
+	font-size: 15px;
+}
